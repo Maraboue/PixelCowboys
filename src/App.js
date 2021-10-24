@@ -200,7 +200,7 @@ render (){
 <div class="content rellax" data-rellax-speed="-0.75">
     <div class="section-grid2-item">
      <h2>Launch Website</h2>
-     <p>Get the website up and running.</p> 
+     <p>Get the website up and running.✅</p> 
      <br/>
      <p>Update road map, team and other components.</p> 
      <br/>
@@ -316,7 +316,7 @@ render (){
 
    <div class="team-item">
 
-     <img src={twitter} alt="Loading.."/>
+     <img src={pixelcowboy} alt="Loading.."/>
 
        <h2>Clint Eastwood</h2>
 
@@ -328,7 +328,7 @@ render (){
 
    <div class="team-item">
 
-     <img src={twitter} alt="Loading.."/>
+     <img src={pixelcowboy} alt="Loading.."/>
 
        <h2>Belle Starr</h2>
 
@@ -340,7 +340,7 @@ render (){
 
      <div class="team-item">
 
-     <img src={twitter} alt="Loading.."/>
+     <img src={pixelcowboy} alt="Loading.."/>
 
        <h2>Wyatt Earp</h2>
 
@@ -354,7 +354,7 @@ render (){
 
    <div class="team-item">
 
-     <img src={twitter} alt="Loading.."/>
+     <img src={pixelcowboy} alt="Loading.."/>
 
        <h2>Billy The Kid</h2>
 
@@ -366,7 +366,7 @@ render (){
 
 <div class="team-item">
 
-  <img src={twitter} alt="Loading.."/>
+  <img src={pixelcowboy} alt="Loading.."/>
 
     <h2>Harmonica</h2>
 
@@ -381,7 +381,6 @@ render (){
 
 </div>
 
-<Mint/>
    <footer class="footer">
      <ul>
        <li><a href="#">Faq</a></li>

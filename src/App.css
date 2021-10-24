@@ -317,7 +317,7 @@ ul {
 	position: absolute;
 	font-size: xxx-large;
 	font-family: 'Press Start 2P';
-	top: 850px;
+	top: 870px;
 	width: 100%;
 	text-align: center;
 
@@ -325,7 +325,7 @@ ul {
 
 .section-grid2 {
 
-	margin-top: 200px;
+	margin-top: 220px;
 	display: grid;
 	grid-template-columns: auto auto auto;
 	justify-content: center;
@@ -439,6 +439,8 @@ ul {
 	width: 100%;
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .team-item h2{
