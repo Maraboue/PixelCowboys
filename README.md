@@ -1,18 +1,12 @@
-# Welcome to HashLips 👄
+# Welcome to the world of Pixel Cowboys 🤠
 
-All the code in these repos was created and explained by HashLips on the main YouTube channel.
+Find us on social media:
 
-To find out more please visit:
+[Discord](https://discord.com/invite/qh6MWhMJDN)
 
-[📺 YouTube](https://www.youtube.com/channel/UC1LV4_VQGBJHTJjEWUmy8nA)
+[Twitter](https://twitter.com/PixelCowboys)
 
-[👄 Discord](https://discord.com/invite/qh6MWhMJDN)
+Visit our website:
 
-[💬 Telegram](https://t.me/hashlipsnft)
+[Website](https://www.pixelcowboys.community/)
 
-[🐦 Twitter](https://twitter.com/hashlipsnft)
-
-[ℹ️ Website](https://hashlips.online/HashLips)
-
-# example_nft_minter
-Use this repo to see how to create a Dapp that can mint NFTs.
