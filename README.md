@@ -1,4 +1,4 @@
-# Welcome to the world of Pixel Cowboys 🤠
+# Welcome to the World of Pixel Cowboys 🤠
 
 Find us on social media:
 
