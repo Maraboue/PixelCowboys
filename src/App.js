@@ -21,7 +21,7 @@ import cowboy1 from '../src/assets/images/cowboy1.png';
 import cowboy2 from '../src/assets/images/cowboy2.png';
 import cowboy3 from '../src/assets/images/cowboy3.png';
 import cowboy4 from '../src/assets/images/cowboy4.png';
-
+import cowboy5 from '../src/assets/images/cowboy5.png';
 
 // Remove later..
 
@@ -190,11 +190,11 @@ render (){
 <div class="content rellax" data-rellax-speed="-1">
     <div class="section-grid2-item">
      <h2>Build the Community </h2>
-     <p>Reach 500 cowboys in Discord.</p> 
+     <p>Reach 500 cowboys in Discord.✅</p> 
      <br/>
-     <p>Reach 500 followers on Twitter.</p> 
+     <p>Reach 500 followers on Twitter.🚧</p> 
      <br/>
-     <p>Fill 100 spots on the whitelist.</p> 
+     <p>Fill 100 spots on the whitelist.🚧</p> 
     </div>
  </div>
 <div class="content rellax" data-rellax-speed="-0.75">
@@ -202,7 +202,7 @@ render (){
      <h2>Launch Website</h2>
      <p>Get the website up and running.✅</p> 
      <br/>
-     <p>Update road map, team and other components.</p> 
+     <p>Update road map, team and other components.🚧</p> 
      <br/>
      <p>Add minor changes to the site for a better user experience.</p> 
     </div>
@@ -214,7 +214,7 @@ render (){
 
      <h2> Grow the Community</h2>
 
-     <p>Reach 1000+ cowboys in Discord.</p> 
+     <p>Reach 1000+ cowboys in Discord.🚧</p> 
       <br/>
       <p>Reach 1000+ followers on Twitter.</p> 
       <br/>
@@ -281,6 +281,10 @@ render (){
                 <div>
                     <img id="carousel-img"  src={cowboy2}  />
                     <p id="legend">Zombie Pirate Cowboy</p>
+                </div>
+                <div>
+                    <img id="carousel-img"  src={cowboy5}  />
+                    <p id="legend">Light Saber Cowboy</p>
                 </div>
                 <div>
                     <img id="carousel-img"  src={cowboy3}  />
