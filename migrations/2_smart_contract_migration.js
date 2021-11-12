@@ -1,5 +1,5 @@
-const SmartContract = artifacts.require("Pixel_Cowboys");
+const SmartContract = artifacts.require("NFT");
 
 module.exports = function (deployer) {
-  deployer.deploy(SmartContract, "Name", "Symbol", "https://");
+  deployer.deploy(SmartContract, "Name", "Symbol", "https://","https://");
 };

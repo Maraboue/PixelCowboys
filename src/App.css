@@ -141,7 +141,7 @@ ul {
 /* Section Stream */
 .section-stream {
 	min-height: 700px;
-	background: url('') transparent no-repeat center center/cover;
+	/*background: url('') transparent no-repeat center center/cover;*/
 
 }
 
@@ -198,18 +198,18 @@ ul {
 	position: absolute;
 	font-size: xxx-large;
 	font-family: 'Press Start 2P';
-	top:575px;
+	top:450px;
 	width: 100%;
 	text-align: center;
+
 }
 
 .section-stream2 {
-	margin-top: 250px;
 	min-height: 550px;
 	background: url('') transparent no-repeat center center/cover;
 	bottom: 35px;
 	top: 75px;
-	margin-bottom: 250px;
+	margin-bottom: 400px;
 }
 
 .section-stream2 h2{
@@ -320,7 +320,7 @@ ul {
 	position: absolute;
 	font-size: xxx-large;
 	font-family: 'Press Start 2P';
-	top: 850px;
+	top: 450px;
 	width: 100%;
 	text-align: center;
 	
@@ -336,6 +336,13 @@ ul {
 	grid-gap: 30px;
 	text-align: center;
 
+}
+
+#mint-date{
+	font-size: large;
+	color: purple;
+	text-shadow: 3px 2px 3px rgb(75, 8, 11);
+	
 }
 
 #pixel-launch{
@@ -390,6 +397,7 @@ ul {
 	position: relative;
 	margin-top: 250px;
 	justify-content: center;
+	margin-bottom: 150px;
 }
 
 .carousel-section p{
@@ -411,17 +419,17 @@ ul {
 /* Section Team */
 
 .team-header{
+
 	position: absolute;
 	font-family: 'Press Start 2P';
 	font-size: xxx-large;
-	top: 610px;
+	top: 600px;
 	width: 100%;
 	text-align: center;
-	z-index:110;
 }
 
 .section-team{
-	
+
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
 	justify-content: center;
@@ -430,21 +438,23 @@ ul {
 	font-family: 'Press Start 2P';
 	margin-bottom: 400px;
 	width: 100%;
-
-	
+	padding-top:50px;	
 }
+
 .team-item img{
 	width: 50%;
 }
 
 .team-item{
 	
-	height: 500px;
-	width: 100%;
+	height: 520px;
+	width: 105%;
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: 20px;
 	padding-left: 10px;
 	padding-right: 10px;
+	position: relative;
+	overflow: hidden;
 }
 
 .team-item h2{
@@ -453,14 +463,30 @@ ul {
 }
 
 .team-item p{
+	/*opacity: 0;*/
 	color: chartreuse;
+	position: absolute;
+	padding-right: 1px;
+	padding-left: 1px;
+	font-size: small;
+	line-height: 1.5;
+	letter-spacing: 2px;
+	
+	
+}
+
+
+
+.team-item p:hover{
+	opacity: 1;
 }
 
 .team-item:hover{
-	height: 525px;
+	height: 515px;
 	width: 425px;
 	background:linear-gradient(to bottom, green, transparent);
-	z-index:0;
+	letter-spacing: 2px;
+
 }
 
 /* Footer */

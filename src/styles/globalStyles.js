@@ -16,12 +16,14 @@ export const Screen = styled.div`
 export const SpacerXSmall = styled.div`
   height: 8px;
   width: 8px;
+  
 `;
 
 // Used for providing space between components
 export const SpacerSmall = styled.div`
   height: 16px;
   width: 16px;
+  
 `;
 
 // Used for providing space between components
@@ -34,6 +36,7 @@ export const SpacerMedium = styled.div`
 export const SpacerLarge = styled.div`
   height: 32px;
   width: 32px;
+
 `;
 
 // Used for providing a wrapper around a component
@@ -55,22 +58,26 @@ export const TextTitle = styled.p`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.6;
+  
 `;
 
 export const TextSubTitle = styled.p`
   color: var(--white);
   font-size: 14px;
   line-height: 1.6;
+  
 `;
 
 export const TextDescription = styled.p`
   color: var(--white);
   font-size: 12px;
   line-height: 1.6;
+  
 `;
 
 export const StyledClickable = styled.div`
   :active {
     opacity: 0.6;
+    
   }
 `;

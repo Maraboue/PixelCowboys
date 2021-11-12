@@ -56,19 +56,47 @@ function Mint() {
   const [feedback, setFeedback] = useState("Maybe it's your lucky day.");
   const [claimingNft, setClaimingNft] = useState(false);
 
-  const claimNFTs = (_amount) => {
+  const claim1NFTs = (_amount) => {
     if (_amount <= 0) {
       return;
     }
     setFeedback("Minting your Pixel Cowboy...");
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(blockchain.account, _amount)
+      .mint( _amount) //blockchain.account,
       .send({
         gasLimit: "285000",
-        to: "0x8446900ff316000813e786b2aeb58fbe7953c204",
+        to: "0x3ad0733a314318eaebed0f201df763f0c7129ab7",
         from: blockchain.account,
-        value: blockchain.web3.utils.toWei((0.003 * _amount).toString(), "ether"),
+        value: blockchain.web3.utils.toWei((0.04 * _amount).toString(), "ether"),
+      })
+      .once("error", (err) => {
+        console.log(err);
+        setFeedback("Sorry, something went wrong please try again later.");
+        setClaimingNft(false);
+      })
+      .then((receipt) => {
+        setFeedback(
+          "You are now an owner of a Pixel Cowboy! Go visit Opensea.io to view it."
+        );
+        setClaimingNft(false);
+        dispatch(fetchData(blockchain.account));
+      });
+  };
+
+  const claim5NFTs = (_amount) => {
+    if (_amount <= 0) {
+      return;
+    }
+    setFeedback("Minting your Pixel Cowboy...");
+    setClaimingNft(true);
+    blockchain.smartContract.methods
+      .mint( _amount) //blockchain.account,
+      .send({
+        gasLimit: "1425000",
+        to: "0x3ad0733a314318eaebed0f201df763f0c7129ab7",
+        from: blockchain.account,
+        value: blockchain.web3.utils.toWei((0.04 * _amount).toString(), "ether"),
       })
       .once("error", (err) => {
         console.log(err);
@@ -120,7 +148,7 @@ function Mint() {
             ai={"center"}
             style={{ backgroundColor: "#383838", padding: 24 }}
           >
-            {Number(data.totalSupply) == 1000 ? (
+            {Number(data.totalSupply) == 7000 ? (
               <>
                 <s.TextTitle style={{ textAlign: "center" }}>
                   The sale has ended.
@@ -130,7 +158,7 @@ function Mint() {
                   You can still find Pixel Cowboys on{" "}
                   <a
                     target={"_blank"}
-                    href={"https://opensea.io/collection/nerdy-coder-clones"} // ÄNDRA DENNA!
+                    href={"https://testnets.opensea.io/collection/fiat-boyz"} // ÄNDRA DENNA!
                   >
                     Opensea.io
                   </a>
@@ -139,7 +167,7 @@ function Mint() {
             ) : (
               <>  
                 <s.TextTitle style={{ textAlign: "center", color:"#f5c42f" }}>  
-                  1 Pixel Cowboy costs ??? ETH.  
+                  1 Pixel Cowboy costs 0.04 ETH.   
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription style={{ textAlign: "center", color:"chartreuse" }}>
@@ -174,16 +202,29 @@ function Mint() {
                     ) : null}
                   </s.Container>
                 ) : (
+                  
                   <s.Container ai={"center"} jc={"center"} fd={"row"}>
+                     
                     <StyledButton
                       disabled={claimingNft ? 1 : 0}
                       onClick={(e) => {
                         e.preventDefault();
-                        claimNFTs(1);
+                        claim1NFTs(1);
                         getData();
                       }}
                     >
                       {claimingNft ? "BUSY" : "BUY 1"}
+                    </StyledButton>
+                    <s.SpacerLarge/>
+                    <StyledButton
+                      disabled={claimingNft ? 1 : 0}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        claim5NFTs(5);
+                        getData();
+                      }}
+                    >
+                      {claimingNft ? "BUSY" : "BUY 5"}
                     </StyledButton>
                   </s.Container>
                 )}

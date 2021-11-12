@@ -1,7 +1,7 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
-import SmartContract from "../../contracts/NCC.json";
+import SmartContract from "../../contracts/NFT.json";
 // log
 import { fetchData } from "../data/dataActions";
 
@@ -47,11 +47,11 @@ export const connect = () => {
         const networkId = await ethereum.request({
           method: "net_version",
         });
-        // const NetworkData = await SmartContract.networks[networkId];
-        if (networkId == 42) {
+        // const NetworkData = await SmartContract.networks[networkId];  // Använd netID istället - 1 main, 4 Rinkeby.
+        if (networkId == 4) {
           const SmartContractObj = new Web3EthContract(
             SmartContract,
-            "0x8446900ff316000813e786b2aeb58fbe7953c204"
+            "0x3ad0733a314318eaebed0f201df763f0c7129ab7"
           );
           dispatch(
             connectSuccess({
@@ -69,7 +69,7 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed("Minting will be announced later on.")); //Change network to Ethereum
+          dispatch(connectFailed("Change network to Ethereum.")); //Change network to Ethereum
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));

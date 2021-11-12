@@ -57,11 +57,10 @@ render (){
    
        <h1 id="header_title">Pixel Cowboy's 7.000 NFT Collection.</h1>
       
-          <button type="button" id="header_btn" class="btn btn-primary" onClick={showAlert} 
-            class="btn btn-primary">Mint NFT
-            </button>
-         
+      
+            <a href="/mint" id="header_btn" class="btn btn-primary">MINT NFTs</a>
        <div> 
+     
 </div>
 
      </div>
@@ -86,7 +85,7 @@ render (){
        class="rellax"
        src={medium} 
        alt="Loading.."
-       data-rellax-speed="0" data-rellax-xs-speed="-3"
+       data-rellax-speed="0.25" data-rellax-xs-speed="-3"
      />
      </div>		
    </section>
@@ -125,7 +124,7 @@ render (){
 
  <div class="about-header">
    
-<div class="content rellax" data-rellax-speed="2">
+<div class="content rellax" data-rellax-speed="1.5">
      <h1>About the Cowboys</h1>
      </div>
      </div>
@@ -175,18 +174,19 @@ render (){
 
 <div class="section-container"> 
 
-<div class="content rellax" data-rellax-speed="2">
+<div class="content rellax" data-rellax-speed="2.2">
 
   
-<div class="roadmap-header">
-     <h1>Road_Map</h1>
-     </div>
-     </div>
+  <div class="roadmap-header">
 
+        <h1>Road Map</h1>
+
+  </div>
+
+</div>
 
 <section class="section section-grid2">
-
-
+    
 <div class="content rellax" data-rellax-speed="-1">
     <div class="section-grid2-item">
      <h2>Build the Community </h2>
@@ -204,7 +204,7 @@ render (){
      <br/>
      <p>Update road map, team and other components.🚧</p> 
      <br/>
-     <p>Add minor changes to the site for a better user experience.</p> 
+     <p>Add minor changes to the site for a better user experience.🚧</p> 
     </div>
  </div>
 
@@ -214,9 +214,9 @@ render (){
 
      <h2> Grow the Community</h2>
 
-     <p>Reach 1000+ cowboys in Discord.🚧</p> 
+     <p>Reach 1000+ cowboys in Discord.✅</p> 
       <br/>
-      <p>Reach 1000+ followers on Twitter.</p> 
+      <p>Reach 1000+ followers on Twitter.🚧</p> 
       <br/>
       <p>Fill round two of whitelist spots.</p> 
       <br/>
@@ -231,7 +231,13 @@ render (){
    
      <h2>Start Giveaways</h2>
 
-     <p> More Details Coming Soon!</p> 
+     <p>2021-11-08 ➡️ 2021-11-13
+       Give away 10 WL spots!🚧</p> 
+      <br/>
+      <p>2021-11-14 Give away one free NFT!</p> 
+      <br/>
+      <p>More Details Coming Soon!</p> 
+      <br/>
 
     </div>
 </div>
@@ -245,8 +251,11 @@ render (){
 
      <h2>Finish the last Designs</h2>
 
-     <p> More Details Coming Soon!</p> 
-
+     <p>Ask the community for new attributes.✅</p> 
+     <br/>
+     <p>Remove overflow pixels from every layer.✅</p> 
+     <br/>
+     <p>Iterate over each attribute one last time.🚧</p> 
     </div>
 
  </div>
@@ -258,14 +267,58 @@ render (){
     <div class="section-grid2-item">
 
      <h2 id="pixel-launch">Launch of the Pixel Cowboys!</h2>
-
-     <p> More Details Coming Soon!</p>  
+     <p>⭐    ⭐     ⭐</p>  
+     <br/>
+     <p> Minting will start on the <strong id="mint-date">25/11</strong></p>
+     <br/>
+     <p> For every 25 minted Pixel Cowboy, one random cowboy holder will get 
+       a <strong id="mint-date">free</strong> Pixel Cowboy!</p> 
+     <br/>
+     <p>⭐    ⭐     ⭐</p>  
 
     </div>
 
  </div>
 
  
+ <div class="content rellax" data-rellax-speed="-1">
+
+    <div class="section-grid2-item">
+
+     <h2 id="pixel-launch">25% Minted</h2>
+
+     <p><strong id="mint-date">1 ETH</strong> Giveaway to 4 cowboy holders.</p>  
+     <br/>
+       
+    </div>
+
+ </div>
+
+ <div class="content rellax" data-rellax-speed="-.75">
+
+<div class="section-grid2-item">
+
+ <h2 id="pixel-launch">50% Minted</h2>
+
+ <p><strong id="mint-date">5 ETH</strong> Giveaway to 20 cowboy holders.</p>  
+     <br/> 
+
+</div>
+
+</div>
+
+<div class="content rellax" data-rellax-speed="-.5">
+
+<div class="section-grid2-item">
+
+ <h2 id="pixel-launch">100% Minted</h2>
+
+ <p><strong id="mint-date">10 ETH</strong> Giveaway to 40 cowboy holders.</p>  
+     <br/> 
+
+</div>
+
+</div>
 
 </section>
 
@@ -324,7 +377,11 @@ render (){
 
        <h2>Clint Eastwood</h2>
 
-        <p>This sheriff is out in the desert right now and will be back soon.</p>  
+    
+
+        <p>Clint Eastwood - the good. Here to build a community of gunslinger cowboys while searching for 
+          the unknown tomb of the last Pixel Cowboy!
+      Hanging out in the saloon, you can catch him smoking a cigar while downing a smooth glass of whiskey.</p>  
    </div>
  </div>
 
@@ -336,7 +393,9 @@ render (){
 
        <h2>Belle Starr</h2>
 
-         <p> This sheriff is out in the desert right now and will be back soon. 
+         <p>Belle Starr, the "Bandit Queen". A true outlaw that is known for being a cattle thief and stealing horses. 
+           But little did they know that she was doing this for the Pixel Cowboys so they could ride into the sunset together. 
+           Now it's done, and it's time to accomplish new crimes and gather more outlaws. Get ready and saddle up.
          </p> 
      </div>
    </div>
@@ -348,7 +407,7 @@ render (){
 
        <h2>Wyatt Earp</h2>
 
-         <p> This sheriff is out in the desert right now and will be back soon.
+         <p>Wyatt Earp is a famous sheriff who brought the law to Tombstone, you probably find him at the saloon with his most trusted gunslingers.
          </p> 
    </div>
 
@@ -374,7 +433,7 @@ render (){
 
     <h2>Harmonica</h2>
 
-      <p> This sheriff is out in the dessert right now and will be back soon.
+      <p>Harmonica, the mysterious. He is driven by an obsession to take revenge on the whales who scamwicked him as a child, and create a community where the small cowboys get a piece of the big cake. They won't see it coming.
       </p> 
   </div>
 </div>
