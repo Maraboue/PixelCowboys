@@ -1,32 +1,35 @@
 {
   "files": {
-    "main.css": "/static/css/main.d3278a49.chunk.css",
-    "main.js": "/static/js/main.7b5104a9.chunk.js",
-    "main.js.map": "/static/js/main.7b5104a9.chunk.js.map",
+    "main.css": "/static/css/main.a2b40a65.chunk.css",
+    "main.js": "/static/js/main.488fa767.chunk.js",
+    "main.js.map": "/static/js/main.488fa767.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.fa84804f.js",
     "runtime-main.js.map": "/static/js/runtime-main.fa84804f.js.map",
     "static/css/2.ed1298f3.chunk.css": "/static/css/2.ed1298f3.chunk.css",
-    "static/js/2.78917fa8.chunk.js": "/static/js/2.78917fa8.chunk.js",
-    "static/js/2.78917fa8.chunk.js.map": "/static/js/2.78917fa8.chunk.js.map",
+    "static/js/2.d97684a7.chunk.js": "/static/js/2.d97684a7.chunk.js",
+    "static/js/2.d97684a7.chunk.js.map": "/static/js/2.d97684a7.chunk.js.map",
     "static/js/3.462c5e11.chunk.js": "/static/js/3.462c5e11.chunk.js",
     "static/js/3.462c5e11.chunk.js.map": "/static/js/3.462c5e11.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.ed1298f3.chunk.css.map": "/static/css/2.ed1298f3.chunk.css.map",
-    "static/css/main.d3278a49.chunk.css.map": "/static/css/main.d3278a49.chunk.css.map",
-    "static/js/2.78917fa8.chunk.js.LICENSE.txt": "/static/js/2.78917fa8.chunk.js.LICENSE.txt",
+    "static/css/main.a2b40a65.chunk.css.map": "/static/css/main.a2b40a65.chunk.css.map",
+    "static/js/2.d97684a7.chunk.js.LICENSE.txt": "/static/js/2.d97684a7.chunk.js.LICENSE.txt",
+    "static/media/Cool Space Cowboy.c83d4d8d.png": "/static/media/Cool Space Cowboy.c83d4d8d.png",
+    "static/media/Dr. Zombie Cowboy.968413dd.png": "/static/media/Dr. Zombie Cowboy.968413dd.png",
     "static/media/reset.css": "/static/media/PressStart2P-Regular.f2341734.woff",
-    "static/media/cowboy1.b36c7ac0.png": "/static/media/cowboy1.b36c7ac0.png",
-    "static/media/cowboy2.a0dc4e48.png": "/static/media/cowboy2.a0dc4e48.png",
+    "static/media/Whiskey Sheriff Cowboy.f1c4d9e1.png": "/static/media/Whiskey Sheriff Cowboy.f1c4d9e1.png",
+    "static/media/White Knight.35105721.png": "/static/media/White Knight.35105721.png",
+    "static/media/Zombie Preacher Cowboy.9b995889.png": "/static/media/Zombie Preacher Cowboy.9b995889.png",
     "static/media/cowboy4.39a8ca42.png": "/static/media/cowboy4.39a8ca42.png",
-    "static/media/cowboy5.b919b73d.png": "/static/media/cowboy5.b919b73d.png",
+    "static/media/cowgirl.2342ac17.png": "/static/media/cowgirl.2342ac17.png",
     "static/media/medium.a5eb158f.png": "/static/media/medium.a5eb158f.png",
     "static/media/pixelCowboy1.e7492dc8.png": "/static/media/pixelCowboy1.e7492dc8.png"
   },
   "entrypoints": [
     "static/js/runtime-main.fa84804f.js",
     "static/css/2.ed1298f3.chunk.css",
-    "static/js/2.78917fa8.chunk.js",
-    "static/css/main.d3278a49.chunk.css",
-    "static/js/main.7b5104a9.chunk.js"
+    "static/js/2.d97684a7.chunk.js",
+    "static/css/main.a2b40a65.chunk.css",
+    "static/js/main.488fa767.chunk.js"
   ]
 }

@@ -320,7 +320,7 @@ ul {
 	position: absolute;
 	font-size: xxx-large;
 	font-family: 'Press Start 2P';
-	top: 450px;
+	top: 850px;
 	width: 100%;
 	text-align: center;
 	
@@ -442,6 +442,8 @@ ul {
 }
 
 .team-item img{
+	padding-top: 10px;
+	padding-bottom: 10px;
 	width: 50%;
 }
 
@@ -471,7 +473,7 @@ ul {
 	font-size: small;
 	line-height: 1.5;
 	letter-spacing: 2px;
-	
+	margin-top: -15px;
 	
 }
 

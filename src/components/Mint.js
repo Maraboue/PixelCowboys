@@ -50,6 +50,7 @@ export const StyledImg = styled.img`
 `;
 
 function Mint() {
+
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
@@ -66,7 +67,7 @@ function Mint() {
       .mint( _amount) //blockchain.account,
       .send({
         gasLimit: "285000",
-        to: "0x3ad0733a314318eaebed0f201df763f0c7129ab7",
+        to: "0xbb58e5824B9E6e2E68F5494FE9e408213748e91C",
         from: blockchain.account,
         value: blockchain.web3.utils.toWei((0.04 * _amount).toString(), "ether"),
       })
@@ -94,7 +95,7 @@ function Mint() {
       .mint( _amount) //blockchain.account,
       .send({
         gasLimit: "1425000",
-        to: "0x3ad0733a314318eaebed0f201df763f0c7129ab7",
+        to: "0xbb58e5824B9E6e2E68F5494FE9e408213748e91C",
         from: blockchain.account,
         value: blockchain.web3.utils.toWei((0.04 * _amount).toString(), "ether"),
       })
@@ -105,7 +106,7 @@ function Mint() {
       })
       .then((receipt) => {
         setFeedback(
-          "You are now an owner of a Pixel Cowboy! Go visit Opensea.io to view it."
+          "You are now an owner of a Pixel Cowboy! Go visit https://opensea.io/collection/pixel-cowboys-community-club to view it."
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -158,7 +159,7 @@ function Mint() {
                   You can still find Pixel Cowboys on{" "}
                   <a
                     target={"_blank"}
-                    href={"https://testnets.opensea.io/collection/fiat-boyz"} // ÄNDRA DENNA!
+                    href={"https://opensea.io/collection/pixel-cowboys-community-club"} // ÄNDRA DENNA!
                   >
                     Opensea.io
                   </a>

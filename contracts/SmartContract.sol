@@ -1,4 +1,3 @@
-
 pragma solidity ^0.8.0;
 
 
@@ -1222,7 +1221,7 @@ abstract contract Ownable is Context {
 
 pragma solidity >=0.7.0 <0.9.0;
 
-contract NFT is ERC721Enumerable, Ownable {
+contract PixelCowboys is ERC721Enumerable, Ownable {
   using Strings for uint256;
 
   string public baseURI;
@@ -1230,10 +1229,10 @@ contract NFT is ERC721Enumerable, Ownable {
   string public notRevealedUri;
   uint256 public cost = 0.04 ether;
   uint256 public maxSupply = 7000;
-  uint256 public maxMintAmount = 20;
-  uint256 public nftPerAddressLimit = 3;
+  uint256 public maxMintAmount = 100;
+  uint256 public nftPerAddressLimit = 100;
   bool public paused = false;
-  bool public revealed = false;
+  bool public revealed = false; // false; 
   bool public onlyWhitelisted = true;
   address[] public whitelistedAddresses;
   mapping(address => uint256) public addressMintedBalance;
@@ -1246,7 +1245,7 @@ contract NFT is ERC721Enumerable, Ownable {
   ) ERC721(_name, _symbol) {
     setBaseURI(_initBaseURI);
     setNotRevealedURI(_initNotRevealedUri);
-    mint(10);
+    mint(50);
   }
 
   // internal
@@ -1268,6 +1267,7 @@ contract NFT is ERC721Enumerable, Ownable {
             uint256 ownerMintedCount = addressMintedBalance[msg.sender];
             require(ownerMintedCount + _mintAmount <= nftPerAddressLimit, "max NFT per address exceeded");
         }
+        if(!isWhitelisted(msg.sender))
         require(msg.value >= cost * _mintAmount, "insufficient funds");
     }
 
@@ -1275,6 +1275,7 @@ contract NFT is ERC721Enumerable, Ownable {
       addressMintedBalance[msg.sender]++;
       _safeMint(msg.sender, supply + i);
     }
+    
   }
   
   function isWhitelisted(address _user) public view returns (bool) {

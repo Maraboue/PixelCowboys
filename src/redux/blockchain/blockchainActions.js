@@ -1,7 +1,7 @@
 // constants
 import Web3EthContract from "web3-eth-contract";
 import Web3 from "web3";
-import SmartContract from "../../contracts/NFT.json";
+import SmartContract from "../../contracts/PixelCowboys.json";
 // log
 import { fetchData } from "../data/dataActions";
 
@@ -48,10 +48,10 @@ export const connect = () => {
           method: "net_version",
         });
         // const NetworkData = await SmartContract.networks[networkId];  // Använd netID istället - 1 main, 4 Rinkeby.
-        if (networkId == 4) {
+        if (networkId == 1) {
           const SmartContractObj = new Web3EthContract(
             SmartContract,
-            "0x3ad0733a314318eaebed0f201df763f0c7129ab7"
+            "0xbb58e5824B9E6e2E68F5494FE9e408213748e91C"
           );
           dispatch(
             connectSuccess({
@@ -69,10 +69,10 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed("Change network to Ethereum.")); //Change network to Ethereum
+          dispatch(connectFailed("Pre-sale starts 26th November 17:00 UTC.")); //Change network to Ethereum
         }
       } catch (err) {
-        dispatch(connectFailed("Something went wrong."));
+        dispatch(connectFailed("Something went wrong." + err));
       }
     } else {
       dispatch(connectFailed("Install Metamask."));

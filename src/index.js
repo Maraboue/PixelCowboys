@@ -16,7 +16,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Switch>
     <Route exact path="/" component={App} />
-    <Route exact path="/mint" component={Mint}/>
+    <Route path="/mint" component={Mint}/>
     </Switch>
   </Provider>,
   </BrowserRouter>,
