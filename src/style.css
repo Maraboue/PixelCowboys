@@ -1,0 +1,189 @@
+@import url("https://use.typekit.net/jmk3xov.css");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+canvas {
+  position: fixed;
+  top:0;
+  left:0;
+
+}
+
+
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+  --yellow: #f5c42f;
+  font-family: 'Press Start 2P';
+  font-weight: 400;
+  font-style: normal;
+}
+
+main {
+  width: 100vw;
+  color: var(--yellow);
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  margin: 0px auto;
+  padding: 120px 0px;
+  
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+
+.btn {
+	display: inline-block;
+  position: relative;
+	border: 0;
+	background: var(--yellow);
+	color: darkblue;
+	border-radius: 20px;
+	padding: 8px 30px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 16px;
+	margin-top: 10px;
+  text-decoration: none;
+    
+}
+
+.btn-mint{
+  width: 42%;
+  display: inline-block;
+  position: relative;
+  font-family: 'Press Start 2P';
+	border: 0;
+	background: var(--yellow);
+	color: black;
+	border-radius: 20px;
+	padding: 8px 30px;
+	text-transform: uppercase;
+	font-weight:lighter;
+	font-size: 20px;
+	margin-top: 10px;
+  letter-spacing: 2.5px;
+  text-decoration: none;
+}
+
+.btn-mint:hover{
+  transform: scale(0.95);
+}
+
+.btn:hover {
+	transform: scale(0.95);
+}
+
+strong{
+  color:var(--yellow);
+}
+
+h1, h2, h3, blockquote {
+  font-family: 'Press Start 2P';
+  font-weight: lighter;
+  font-style: normal;
+  color: var(--yellow)
+}
+
+
+  header {
+    background: var(--dark-bg);
+    grid-column: 2 / span 5;
+    font-size: 1.2rem;
+    padding: 2rem;
+    
+    margin-bottom: var(--spacing);
+    border-radius: 15px;
+  }
+
+  blockquote, section p {
+    color: limegreen;
+   
+  }
+
+  section p:hover{
+    padding: 5px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+ 
+
+  header p {
+    font-family: 'Press Start 2P';
+    color: limegreen;
+    letter-spacing: 0;
+  }
+
+  section {
+    grid-column: 2 / 8;
+    padding: 1rem;
+    background: var(--dark-bg);
+    font-size: 1.15rem;
+    line-height: 1.75;
+    margin-bottom: var(--spacing);
+    font-family: 'Press Start 2P';
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+ #community-img{
+  
+   width: 15%;
+   height: 15%;
+ }
+
+  #nagmi{
+    color: rgb(207, 42, 42);
+  }
+
+  #section-community h2, h3{
+    display: flex;
+    justify-content: center;
+  }
+
+  #section-community p {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  #section-community{
+    padding-bottom: 21px;
+  }
+  
+  blockquote {
+    margin: 0;
+    padding: 0;
+    grid-column: 2 / span 9;
+    margin-bottom: var(--spacing);
+  }
+
+  .team-item img{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width:25%;
+    height: 200px;
+  }
+
+  .team-item{
+   
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+
+
+  blockquote p {
+    color: limegreen;
+    background-color: rgba(15, 15, 15, 0.95);
+    font-size: 2rem;
+    display: inline;
+    letter-spacing: 4px;
+    line-height: 1.2;
+    
+  }
+
+  .left {
+    grid-column: 6 / 12;
+  }

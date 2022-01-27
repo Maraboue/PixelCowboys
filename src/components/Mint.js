@@ -5,6 +5,9 @@ import { fetchData } from "../redux/data/dataActions";
 import * as s from "../styles/globalStyles";
 import styled from "styled-components";
 import i1 from "../assets/images/pixelCowboy1.png";
+import "../styles/reset.css";
+import "../styles/theme.css";
+
 
 export const StyledButton = styled.button`
   padding: 10px;
@@ -69,7 +72,7 @@ function Mint() {
         gasLimit: "285000",
         to: "0xbb58e5824B9E6e2E68F5494FE9e408213748e91C",
         from: blockchain.account,
-        value: blockchain.web3.utils.toWei((0.04 * _amount).toString(), "ether"),
+        value: blockchain.web3.utils.toWei((0.00 * _amount).toString(), "ether"),
       })
       .once("error", (err) => {
         console.log(err);
@@ -97,7 +100,7 @@ function Mint() {
         gasLimit: "1425000",
         to: "0xbb58e5824B9E6e2E68F5494FE9e408213748e91C",
         from: blockchain.account,
-        value: blockchain.web3.utils.toWei((0.04 * _amount).toString(), "ether"),
+        value: blockchain.web3.utils.toWei((0.04).toString(), "ether"), //0.04 * _amount
       })
       .once("error", (err) => {
         console.log(err);
@@ -164,11 +167,11 @@ function Mint() {
                     Opensea.io
                   </a>
                 </s.TextDescription>  
-              </>                               // Ändra kostnaden i ETH!
+              </>                               // Ändra kostnaden i ETH! // costs 0.04
             ) : (
               <>  
                 <s.TextTitle style={{ textAlign: "center", color:"#f5c42f" }}>  
-                  1 Pixel Cowboy costs 0.04 ETH.   
+                  1 Pixel Cowboy is FREE to mint!
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription style={{ textAlign: "center", color:"chartreuse" }}>

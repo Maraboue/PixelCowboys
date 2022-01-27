@@ -1,481 +1,511 @@
-// React and CSS.
-
-import React, { useEffect, useState, useRef } from "react";
-import './App.css';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-
-// Componenets.
-
-import Mint from "./components/Mint";
-import Navbar from "./components/navbar/navbar";
-import { Carousel } from 'react-responsive-carousel';
-import Rellax from 'rellax';
+import './style.css';
+import React from 'react';
+import * as THREE from 'three';
 import Typewriter from 'typewriter-effect';
+import NavigationBar from './components/navbar/navbar';
 
-// Resources.
+import moon1 from './moon.jpg';
+import cowboy1 from './assets/images/pixelCowboy1.png';
+import cowboySpace from './assets/images/pxlSpaceCowboy.png';
 
-import pixelcowboy from '../src/assets/images/pixelCowboy1.png';
-import discord from '../src/assets/images/discord.png';
-import twitter from '../src/assets/images/twitter.png';
-import medium from '../src/assets/images/medium.png';
+import cowboy24 from './assets/images/24.png';
+import cowboy160 from './assets/images/160.png';
+import cowboy246 from './assets/images/246.png';
+import cowboy527 from './assets/images/1071.png';
+import cowboy585 from './assets/images/1080.png';
+import cowboy638 from './assets/images/638.png';
 
-/*import cowboy1 from '../src/assets/images/cowboy1.png';
-import cowboy2 from '../src/assets/images/cowboy2.png';
-import cowboy3 from '../src/assets/images/cowboy3.png';
-import cowboy5 from '../src/assets/images/cowboy5.png';*/
 
-import cowboy6 from '../src/assets/images/cowboy4.png';
+import normal from './normal.jpg';
+import saloon from './assets/images/saloon.jpg';
 
-import cowboy1 from '../src/assets/images/Cool Space Cowboy.png';
-import cowboy2 from '../src/assets/images/Dr. Zombie Cowboy.png';
-import cowboy3 from '../src/assets/images/Whiskey Sheriff Cowboy.png';
-import cowboy4 from '../src/assets/images/White Knight.png';
-import cowboy5 from '../src/assets/images/Zombie Preacher Cowboy.png';
-import cowgirl from '../src/assets/images/cowgirl.png';
+import discord from './assets/images/discord.png';
+import medium from './assets/images/medium.png';
+import twitter from './assets/images/twitter.png';
 
+import audio1 from './Lone_Rider.mp3'
 
 
 class App extends React.Component {
 
-  componentDidMount(){
-		this.rellax = new Rellax('.rellax',
-			
-		);
-	}
+  componentDidMount() {
+
+    const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+const renderer = new THREE.WebGLRenderer({
+  canvas: document.querySelector('#bg'),
+});
+
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+camera.position.setZ(30);
+camera.position.setX(-3);
+
+renderer.render(scene, camera);
 
 
-render (){
+var stream = audio1 ;
+
+var audioLoader = new THREE.AudioLoader();
+var listener = new THREE.AudioListener();
+var audio = new THREE.Audio(listener);
+audioLoader.load(stream, function(buffer) {
+    audio.setBuffer(buffer);
+    audio.setLoop(true);
+    audio.setVolume(0.15);
+    audio.play();
+});
+
+// Lights
+
+const pointLight = new THREE.PointLight(0xffffff);
+pointLight.position.set(5, 5, 5);
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointLight, ambientLight);
+
+
+
+
+
+function addStar() {
+
+  const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+  const material = new THREE.MeshStandardMaterial({ color: 0xd1d117, metalness:0.7});
+  const star = new THREE.Mesh(geometry, material);
+
+  const [x, y, z] = Array(3)
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(400));
+
+  star.position.set(x, y, z);
+  scene.add(star);
+}
+
+Array(100).fill().forEach(addStar);
+
+// Background
+
+const spaceTexture = new THREE.TextureLoader().load(saloon);
+scene.background = spaceTexture;
+
+// Avatar
+
+const moonTexture1 = new THREE.TextureLoader().load(cowboy527);
+//const normalTexture1 = new THREE.TextureLoader().load(normal);
+
+const moonTexture = new THREE.TextureLoader().load(moon1);
+
+
+const cowboy = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5),
+new THREE.MeshStandardMaterial({
+  map: moonTexture1,
+ // normalMap: normalTexture1,
+}));
+
+//scene.add(cowboy);
+const normalTexture = new THREE.TextureLoader().load(normal);
+
+const cowboyTexture2 = new THREE.TextureLoader().load(cowboy1);
+
+const cowboy2= new THREE.Mesh(new THREE.BoxGeometry(7, 7, 7), new THREE.MeshBasicMaterial({ map: cowboyTexture2 }));
+
+scene.add(cowboy2);
+
+const cowboyTexture3 = new THREE.TextureLoader().load(cowboy24);
+
+const cowboy3 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture3 }));
+
+scene.add(cowboy3);
+
+const cowboyTexture4 = new THREE.TextureLoader().load(cowboy160);
+
+const cowboy4 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture4 }));
+
+//scene.add(cowboy4);
+//scene.add(moon);
+
+const cowboyTexture5 = new THREE.TextureLoader().load(cowboy246);
+
+const cowboy5 = new THREE.Mesh(new THREE.BoxGeometry(15, 15, 15), new THREE.MeshBasicMaterial({ map: cowboyTexture5 }));
+
+scene.add(cowboy5);
+
+const cowboyTexture6 = new THREE.TextureLoader().load(cowboy527);
+
+const cowboy6 = new THREE.Mesh(  new THREE.SphereGeometry(3, 32, 32),
+new THREE.MeshStandardMaterial({
+  map: moonTexture,
+  normalMap: normalTexture,
+}));
+  
+  
+  //new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture6 }));
+
+scene.add(cowboy6);
+
+const cowboyTexture7 = new THREE.TextureLoader().load(cowboy638);
+
+const cowboy7 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture7 }));
+
+scene.add(cowboy7);
+
+const cowboyTexture8 = new THREE.TextureLoader().load(cowboy638);
+
+const cowboy8 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture8 }));
+
+scene.add(cowboy8);
+
+const cowboyTexture9 = new THREE.TextureLoader().load(cowboy638);
+
+const cowboy9 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture9 }));
+
+scene.add(cowboy9);
+
+const cowboyTexture10 = new THREE.TextureLoader().load(cowboy638);
+
+const cowboy10 = new THREE.Mesh(new THREE.BoxGeometry(20, 20, 20), new THREE.MeshBasicMaterial({ map: cowboyTexture10 }));
+
+scene.add(cowboy10);
+
+const cowboyTexture11 = new THREE.TextureLoader().load(cowboy638);
+
+const cowboy11 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture11 }));
+
+scene.add(cowboy11);
+
+
+// Moon
+
+//const normalTexture = new THREE.TextureLoader().load(normal);
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture,
+  })
+);
+
+scene.add(moon);
+
+const moon2= new THREE.Mesh(  new THREE.SphereGeometry(3, 32, 32),
+new THREE.MeshStandardMaterial({
+  map: moonTexture,
+  normalMap: normalTexture,
+}));
+
+scene.add(moon2);
+
+const moon3= new THREE.Mesh(  new THREE.SphereGeometry(3, 32, 32),
+new THREE.MeshStandardMaterial({
+  map: moonTexture,
+  normalMap: normalTexture,
+}));
+  
+  
+  //new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture6 }));
+
+scene.add(moon3);
+
+
+moon.position.z = 65;
+moon.position.setX(-10);
+
+moon2.position.z = 155;
+moon2.position.setX(-22);
+
+moon3.position.z = 305;
+moon3.position.setX(-22);
+
+
+cowboy.position.z = -10;
+cowboy.position.x = 7;
+
+cowboy2.position.z = 0;
+cowboy2.position.setX(-25);
+
+cowboy3.position.z = 15;
+cowboy3.position.setX(33);
+cowboy3.position.setY(32);
+
+
+cowboy4.position.z = 25;
+cowboy4.position.setX(111);
+cowboy4.position.setY(5);
+
+cowboy5.position.z = 135;
+cowboy5.position.setX(-6);
+cowboy4.position.setY(3);
+
+cowboy6.position.z = 45;
+cowboy6.position.setX(-233);
+cowboy6.position.setY(-11);
+
+cowboy7.position.z = 55;
+cowboy7.position.setX(22);
+cowboy7.position.setY(-5);
+
+cowboy8.position.z = 100;
+cowboy8.position.setX(-120);
+cowboy8.position.setY(-5);
+
+
+cowboy9.position.z = 35;
+cowboy9.position.setX(-150);
+cowboy9.position.setY(3);
+
+
+
+cowboy10.position.z = 155;
+cowboy10.position.setX(-222);
+cowboy10.position.setY(3);
+
+
+
+cowboy11.position.z = 155;
+cowboy11.position.setX(-222);
+cowboy11.position.setY(3);
+
+// Scroll Animation
+
+const moveCamera = function() {
+  const t = document.body.getBoundingClientRect().top;
+  moon.rotation.x += 0.05;
+  moon.rotation.y += 0.075;
+  moon.rotation.z += 0.05;
+  moon2.rotation.x += 0.05;
+  moon2.rotation.y += 0.075;
+  moon2.rotation.z += 0.05;
+  moon3.rotation.y += 0.075;
+  moon3.rotation.z += 0.05;
+
+  cowboy2.rotation.y += 0.01;
+  cowboy2.rotation.z += 0.01;
+  cowboy3.rotation.y += 0.01;
+  cowboy3.rotation.z += 0.01;
+  cowboy4.rotation.y += 0.01;
+  cowboy4.rotation.z += 0.01;
+  cowboy5.rotation.y += 0.01;
+  cowboy5.rotation.z += 0.01;
+  cowboy6.rotation.y += 0.01;
+  cowboy6.rotation.z += 0.01;
+  cowboy7.rotation.y += 0.01;
+  cowboy7.rotation.z += 0.01;
+  cowboy8.rotation.y += 0.01;
+  cowboy8.rotation.z += 0.01;
+  cowboy9.rotation.y += 0.01;
+  cowboy9.rotation.z += 0.01;
+  cowboy10.rotation.y += 0.01;
+  cowboy10.rotation.z += 0.01;
+  cowboy11.rotation.y += 0.01;
+  cowboy11.rotation.z += 0.01;
+
+  camera.position.z = t * -0.05;
+  camera.position.x = t * -0.0001;
+  camera.rotation.y = t * -0.00008;
+}
+
+document.body.onscroll = moveCamera;
+moveCamera();
+
+// Animation Loop
+
+const animate = function() {
+  requestAnimationFrame(animate);
+ 
+
+  cowboy.rotation.x += 0.0025;
+
+  moon.rotation.x += 0.005;
+
+  renderer.render(scene, camera);
+}
+  animate();
+
+  
+ 
+  }
+
+
+
+render(){
   return (
 
-    <div className="App">
-	
-    <section class="section section-top">
-    <Navbar/>
-     <div class="content rellax" data-rellax-speed="4">
+      
+    <div>
+    
+    <canvas id="bg"></canvas>   
+    <NavigationBar/>
+    <main>
 
- <div id="header_title">      
-<Typewriter
-  options={{
-    strings: ['Howdy Cowboy!', 'Welcome to'],
+      <header>
+        <h1>Pixel Cowboys Community Club.</h1>
+        <p><Typewriter
+      options={{
+    strings: ['Howdy Cowboy!', 'Welcome to the community!'],
     autoStart: true,
     loop: true,
   }}
-/>
-<br/>
-</div>
-   
-       <h1 id="header_title">Pixel Cowboys Community Club.</h1>
-      
-      
-            <a href="/mint" id="header_btn" class="btn btn-primary">MINT NFTs</a>
-       <div> 
-     
-</div>
+/></p><center><a href="/mint" class="btn-mint">MINT NFTs</a></center>  
+      </header>
+    
+      <blockquote>
+        <p>A Wild West NFT Collection Consisting of <strong>7000</strong> Unique and Randomly Generated <strong>Pixel Cowboys</strong>.</p>
+      </blockquote>
 
-     </div>
-   </section>
-
-   <section class="section section-stream">
-
-     <div class="image-container">
-     <img
-       class="rellax"
-       src={discord} 
-       alt="Loading.."
-       data-rellax-speed="-4" data-rellax-xs-speed="-3"
-     />
-       <img
-       class="rellax"
-       src={twitter} 
-       alt="Loading.."
-       data-rellax-speed="-2.5" data-rellax-xs-speed="-3"
-     />
-       <img
-       class="rellax"
-       src={medium} 
-       alt="Loading.."
-       data-rellax-speed="0.25" data-rellax-xs-speed="-3"
-     />
-     </div>		
-   </section>
-     
-   <section class="section section-grid">
-
-     
-     
-     <div class="rellax" data-rellax-speed="1" data-rellax-xs-speed="3">
-       <i class="fas fa-video fa-3x secondary-text"></i>
-       <h2>Discord<span class="secondary-text dot">.</span></h2>
-       <p>
-         Join our Discord server and hang out with other cowboys in the saloon!🤠
-       </p>
-       <a  href="https://discord.gg/PfWgPDnq7F" class="btn btn-primary">Join Discord</a>
-     </div>
-     <div class="rellax" data-rellax-speed="4" data-rellax-xs-speed="3">
-       <i class="fas fa-users fa-3x secondary-text"></i>
-       <h2>Twitter<span class="secondary-text dot">.</span></h2>
-       <p>
+      <section id="section-community">
+        <h2>📜Community</h2>
+        <h3><img id="community-img" src={discord} alt="Discord "/></h3>
+        <p>
+         Join our Discord server, hang out with other cowboys, share your adventures, plan a heist or just stop by to have some whiskey. It all happens in the Saloon!🤠
+       </p><center>
+       <a  href="https://discord.gg/PfWgPDnq7F" class="btn btn-primary">Join Discord</a></center>
+        <h3><img id="community-img" src={twitter} alt="Twitter "/></h3>
+        <p>
          Follow us on Twitter to get fast updates and news about the Pixel Cowboys.🤠
-       </p>
-       <a  href="https://twitter.com/PixelCowboys" class="btn btn-primary">Follow Twitter</a>
-     </div>
-     <div class="rellax" data-rellax-speed="7" data-rellax-xs-speed="3">
-       <i class="fas fa-book fa-3x secondary-text"></i>
-       <h2>Medium<span class="secondary-text dot">.</span></h2>
-       <p>
+       </p><center>
+       <a  href="https://twitter.com/PixelCowboyz" class="btn btn-primary">Follow Twitter</a></center>
+        <h3><img id="community-img" src={medium} alt="Medium "/></h3>
+        <p>
          Stay up to date by reading our blog over at Medium.🤠 
-       </p>
-       <a  href="https://dynamic-network.medium.com/" class="btn btn-primary">Read Medium</a>
-     </div>
-   </section>
+       </p><center>
+       <a  href="https://dynamic-network.medium.com/" id="button" class="btn btn-primary">Read Medium</a></center>
 
- <div class="section-container">
+      </section>
 
- <div class="about-header">
-   
-<div class="content rellax" data-rellax-speed="1.5">
-     <h1>About the Cowboys</h1>
-     </div>
-     </div>
+      <section class="light" id="section-about">
+      <center><h2>🤠 About the Cowboys 🤠</h2></center>
 
-   <section class="section section-stream2">
-     <img id="pixelcowboy"
-       class="play rellax"
-       src={pixelcowboy} 
-       alt="Loading.."
-       data-rellax-speed="1" data-rellax-xs-speed="-5"
-     />
-  
-  <div class="content rellax" data-rellax-speed="1.2">
-    <div>
-      <h2 class="secondary-text">Limited Collection</h2>
-      <p id="about-p">
-        Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Each cowboy will be unique and randomly 
+<h3>Limited Collection </h3>
+<p>
+Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Each cowboy will be unique and randomly 
         generated by code. 
-      </p>
-    </div>
-    <div>
-      <h2 class="secondary-text">Fair Minting</h2>
-      <p id="about-p">
-        We want to reward early adopters. Because of this, we will have a pre-sale for the gunslingers on the <strong id="mint-date">26th November </strong>
-        The minting will be open to the public on the <strong id="mint-date">28th November</strong> and we have decided on a fair minting price of <strong id="mint-date">0.04 ETH</strong>.
+</p>
+<h3>Fair Minting</h3>
+<p id="about-p">
+        We want to reward early adopters. Because of this, we will have a <strong>FREE MINT</strong> for the early gunslingers in the community.
+        After <strong>25%</strong> minted, the price will be open to the public for a fair price of <strong>0.025 ETH</strong>.
         This is because the community is what's important, not the revenue from the minting. 
       </p>
-    </div>
-  <div>
-      <h2 class="secondary-text">Community Driven</h2>
-      <p id="about-p">
-        The cowboys have each others back. We believe that the <strong id="mint-date">Pixel Cowboy 
-        community</strong> knows whats best for the future of the cowboys. This means that all the changes in the project
+<h3>Community Driven</h3>
+<p id="about-p">
+        The cowboys have each others back. We believe that the <strong id="mint-date">Pixel Cowboys 
+        community</strong> knows what's best for the future of the cowboys. This means that all the changes in the project
         runs through every cowboy as they has a saying.
       </p>
-    </div>
-  <div>
-      <h2 class="secondary-text">Owner Rewards</h2>
-      <p id="about-p">
-        Pixel Cowboys will be doing continious giveaways<strong id="mint-date"> for all cowboy holders</strong> with the opportunity to win exclusive rewards. 
-        We will also ask the community regularly for ideas regarding how we can <strong id="mint-date">give back</strong> to the Pixel Cowboy community.
-      </p>
-    </div>
-  </div>
 
-</section>
-</div>
+      </section>
+
+      <blockquote>
+        <p>You see, in this world, there’s two kinds of people, my friend – those who <strong>WAGMI</strong> , and those who <p id="nagmi">NGMI</p>.<br/>-Clint Eastwood.</p>
+      </blockquote>
+
+      
+      <section class="left" id="section-roadmap">
+        <h2>🗺️ Road Map</h2>
+
+        <h3>Launch of the Pixel Cowboys</h3>
   
-
-
-<div class="section-container"> 
-
-<div class="content rellax" data-rellax-speed="2.2">
-
+        <p>⭐    ⭐     ⭐<br/><br/> Begin the minting of the cowboys ✅<br/><br/> ⭐    ⭐     ⭐</p>
   
-  <div class="roadmap-header">
+        <h3>25 % Minted 🚀</h3>
+        <p>The early supporters of the Pixel Cowboys Community Club will be rewarded with a <strong>FREE</strong> mint. This is because our vision is to build a <strong>community driven</strong> project where revenue is secondary and community comes first.
+            After 1750 cowboys has been minted, we will start <strong>airdropping</strong> tokens and NFTs to the early holders. </p> 
 
-        <h1>Road Map</h1>
+        <h3>50 % Minted 🚀</h3>
 
-  </div>
+        <p>When 50% is reached, a <strong>BIG ETH giveaway</strong> will take place. We dont believe in one holder winning a massive price, but instead we want to give this to 
+          20 cowboy holders, making your chance greater to win some of the ETH. Along with this, we will also giveaway <strong>5 Pixel Cowboys NFTs</strong> to 5 cowboy holders.</p>
 
-</div>
+        
+          <h3>100%  Minted 🚀</h3>
 
-<section class="section section-grid2">
-    
-<div class="content rellax" data-rellax-speed="-1">
-    <div class="section-grid2-item">
-     <h2>Build the Community </h2>
-     <p>Reach 500 cowboys in Discord.✅</p> 
-     <br/>
-     <p>Reach 500 followers on Twitter.✅</p> 
-     <br/>
-     <p>Fill 100 spots on the whitelist.✅</p> 
-    </div>
- </div>
-<div class="content rellax" data-rellax-speed="-0.75">
-    <div class="section-grid2-item">
-     <h2>Launch Website</h2>
-     <p>Get the website up and running.✅</p> 
-     <br/>
-     <p>Update road map, team and other components.✅</p> 
-     <br/>
-     <p>Add minor changes to the site for a better user experience.🚧</p> 
-    </div>
- </div>
+        <p>After all the cowboys has been minted, a <strong>MEGA ETH giveaway</strong> will occur. This giveaway will be distributed to 50 % of the cowboy holders, making the 
+          chances for each holder to win ½. We believe that this is the best way to do it, as we want as many as possible in the community to benefit from 
+          the giveaways. We will also giveaway <strong>10 Pixel Cowboys NFTs</strong> to 10 cowboy holders. After this, a new road map will be developed - <strong>ROAD MAP 2.0</strong></p>
+      </section>
 
- <div class="content rellax" data-rellax-speed="-0.5">
+      <section class="left" id="section-team">
+        <h2>🤠 Sheriffs</h2>
 
-    <div class="section-grid2-item">
 
-     <h2> Grow the Community</h2>
+        <div class="team-container">
 
-     <p>Reach 1000+ cowboys in Discord.✅</p> 
-      <br/>
-      <p>Reach 1000+ followers on Twitter.🚧</p> 
-      <br/>
-      <p>Fill round two of whitelist spots (Surprise for discord members).✅</p> 
-      <br/>
-    </div>
+          <div class="team-item">
 
- </div>
+      <img src={cowboy1} alt="Loading.."/>
 
+            <h2>Clint Eastwood</h2>
+              <p>Clint Eastwood - <strong>The Good</strong>. Here to build a community of gunslinger cowboys while searching for 
+                the unknown tomb of the last Pixel Cowboy!
+            Hanging out in the saloon, you can catch him smoking a cigar while downing a smooth glass of whiskey.</p>  
+        </div>
 
- <div class="content rellax" data-rellax-speed="-1">
-  <div class="mobile-spacing">
-    <div class="section-grid2-item">
-   
-     <h2>Start Giveaways</h2>
+            <div class="team-item">
 
-     <p>2021-11-08 ➡️ 2021-11-13
-       Give away 10 WL spots!✅</p> 
-      <br/>
-      <p>2021-11-14 Give away one free NFT!✅</p> 
-      <br/>
-      <p>2021-11-15 Start collab giveaways on Twitter & Discord✅</p> 
-      <br/>
+      <img src={cowboy1} alt="Loading.."/>
 
-    </div>
-</div>
- </div>
+        <h2>Belle Starr</h2>
 
+        <p>Belle Starr, the <strong>Bandit Queen</strong>. A true outlaw that is known for being a cattle thief and stealing horses. 
+          But little did they know that she was doing this for the Pixel Cowboys so they could ride into the sunset together. 
+          Now it's done, and it's time to accomplish new crimes and gather more outlaws. Get ready and saddle up.
+        </p>  
+      </div>
+        
+      <div class="team-item">
 
+<img src={cowboy1} alt="Loading.."/>
 
- <div class="content rellax" data-rellax-speed="-0.75">
-
-    <div class="section-grid2-item">
-
-     <h2>Finish the last Designs</h2>
-
-     <p>Ask the community for new attributes.✅</p> 
-     <br/>
-     <p>Remove overflow pixels from every layer.✅</p> 
-     <br/>
-     <p>Iterate over each attribute one last time.✅</p> 
-    </div>
-
- </div>
-
-
-
- <div class="content rellax" data-rellax-speed="-0.5">
-
-    <div class="section-grid2-item">
-
-     <h2 id="pixel-launch">Launch of the Pixel Cowboys!</h2>
-     <p>⭐    ⭐     ⭐</p>  
-     <br/>
-     <p> Minting will start on the <strong id="mint-date">26/11</strong></p>
-     <br/>
-     <p> For every 100 minted Pixel Cowboy, one random cowboy holder will get 
-       a <strong id="mint-date">free</strong> Pixel Cowboy!</p> 
-     <br/>
-     <p>⭐    ⭐     ⭐</p>  
-
-    </div>
-
- </div>
-
- 
- <div class="content rellax" data-rellax-speed="-1">
-
-    <div class="section-grid2-item">
-
-     <h2 id="pixel-launch">25% Minted</h2>
-
-     <p><strong id="mint-date">1 ETH</strong> Giveaway to 4 cowboy holders.</p>  
-     <br/>
-     <p><strong id="mint-date">1 Pixel Cowboy</strong> Giveaway to 1 cowboy holders.</p>    
-    </div>
-
- </div>
-
- <div class="content rellax" data-rellax-speed="-.75">
-
-<div class="section-grid2-item">
-
- <h2 id="pixel-launch">50% Minted</h2>
-
- <p><strong id="mint-date">5 ETH</strong> Giveaway to 20 cowboy holders.</p>  
-     <br/> 
- <p><strong id="mint-date">5 Pixel Cowboys</strong> Giveaway to 5 cowboy holders.</p> 
-</div>
-
-</div>
-
-<div class="content rellax" data-rellax-speed="-.5">
-
-<div class="section-grid2-item">
-
- <h2 id="pixel-launch">100% Minted</h2>
-
- <p><strong id="mint-date">10 ETH</strong> Giveaway to 40 cowboy holders.</p>  
-     <br/> 
- <p><strong id="mint-date">10 Pixel Cowboy</strong> Giveaway to 10 cowboy holders.</p> 
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-
-<div class="carousel-section">
-        <Carousel showArrows={true} emulateTouch={true} thumbWidth={80}  >
-                <div>
-                    <img id="carousel-img" src={cowboy1} />
-                    <p id="legend">Cool Space Cowboy</p>
-                </div>
-                <div>
-                    <img id="carousel-img"  src={cowboy2}  />
-                    <p id="legend">Dr. Zombie Cowboy</p>
-                </div>
-                <div>
-                    <img id="carousel-img"  src={cowboy5}  />
-                    <p id="legend">Preacher Zombie Cowboy</p>
-                </div>
-                <div>
-                    <img id="carousel-img"  src={cowboy3}  />
-                    <p id="legend">Whiskey Sheriff Cowboy</p>
-                </div>
-                <div>
-                    <img id="carousel-img"  src={cowboy4}  />
-                    <p id="legend">White Knight Cowboy</p>
-                </div>
-            </Carousel>
-</div>
-
-<div class="section-container"> 
-
-
-<section class="section section-team">
- </section>
- <section class="section section-team">
- </section>
-
-
- <div class="content rellax" data-rellax-speed="2">
-
- <div class="team-header">
-
-   <h1>Sheriffs</h1>
-
- </div>
-</div>
- <section class="section section-team">
-
- <div class="content rellax" data-rellax-speed="1.75">
-
-   <div class="team-item">
-
-     <img src={cowboy4} alt="Loading.."/>
-
-       <h2>Clint Eastwood</h2>
-
-    
-
-        <p>Clint Eastwood - the good. Here to build a community of gunslinger cowboys while searching for 
-          the unknown tomb of the last Pixel Cowboy!
-      Hanging out in the saloon, you can catch him smoking a cigar while downing a smooth glass of whiskey.</p>  
-   </div>
- </div>
-
- <div class="content rellax" data-rellax-speed="1.5">
-
-   <div class="team-item">
-
-     <img src={cowgirl} alt="Loading.."/>
-
-       <h2>Belle Starr</h2>
-
-         <p>Belle Starr, the "Bandit Queen". A true outlaw that is known for being a cattle thief and stealing horses. 
-           But little did they know that she was doing this for the Pixel Cowboys so they could ride into the sunset together. 
-           Now it's done, and it's time to accomplish new crimes and gather more outlaws. Get ready and saddle up.
-         </p> 
-     </div>
-   </div>
- <div class="content rellax" data-rellax-speed="1.25">
-
-     <div class="team-item">
-
-     <img src={cowboy5} alt="Loading.."/>
-
-        <h2>Billy The Kid</h2>
+       <h2>Billy The Kid</h2>
 
         <p>
-          Billy The Kid, the infamous outlaw and gunslinger. He has traveled the west and wreaked havoc wherever he went. 
+          Billy The Kid, <strong>the Infamous</strong>. He has traveled the west and wreaked havoc wherever he went. 
           Nowadays you'll find him in the saloon with his trusty gunslingers and his gold bars. However, he may bring havoc once again
-        </p> 
-
-   </div>
-
- </div>
- 
- <div class="content rellax" data-rellax-speed="1">
-
-   <div class="team-item">
-
-         
-     <img src={cowboy6} alt="Loading.."/>
-
-      <h2>Wyatt Earp</h2>
-
-      <p>Wyatt Earp is a famous sheriff who brought the law to Tombstone, you probably find him at the saloon with his most trusted gunslingers.
-
-      </p> 
-
-     </div>
- </div>
- <div class="content rellax" data-rellax-speed="0.75">
+        </p>  
+</div>
 
 <div class="team-item">
 
-  <img src={cowboy2} alt="Loading.."/>
+<img src={cowboy1} alt="Loading.."/>
 
-    <h2>Harmonica</h2>
+      <h2>Harmonica</h2>
 
-      <p>Harmonica, the mysterious. He is driven by an obsession to take revenge on the whales who scamwicked him as a child, and create a community where the small cowboys get a piece of the big cake. They won't see it coming.
+      <p>Harmonica, <strong>the Mysterious</strong>. He is driven by an obsession to take revenge on the whales who scamwicked him as a child, and create 
+        a community where the small cowboys get a piece of the big cake. They won't see it coming.
       </p> 
-  </div>
 </div>
-  
+        </div>
+      </section>
 
- </section>
-   
-
-</div>
-
-   <footer class="footer">
-     <ul>
-       <li><a href="#">Faq</a></li>
-       <li><a href="#">Terms of Use</a></li>
-       <li><a href="#">Privacy Notice</a></li>
-       <li><a href="#">Contact Us</a></li>
-       <li><a href="#">About Us</a></li>
-     </ul>
-   </footer>
-   </div>
+      <blockquote>
+        <p>See you in <strong>the Saloon</strong> Cowboy!</p>
+      </blockquote>
      
+
+<footer class="footer">
+  <ul>
+    <li><a href="#">Faq</a></li>
+    <li><a href="#">Terms of Use</a></li>
+    <li><a href="#">Privacy Notice</a></li>
+    <li><a href="#">Contact Us</a></li>
+    <li><a href="#">About Us</a></li>
+  </ul>
+</footer>
+
+
+    </main>
+    <script type="module" src="/main.js"></script>
+
+  </div>
+    
   );
 }
 }
+
 
 export default App;
 
