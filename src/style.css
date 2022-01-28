@@ -1,12 +1,13 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+
 canvas {
   position: fixed;
   top:0;
   left:0;
-
 }
+
 
 
 :root {
@@ -19,6 +20,10 @@ canvas {
   letter-spacing: 1.5px;
 }
 
+body{
+  background-color: black;
+}
+
 main {
   width: 100vw;
   color: var(--yellow);
@@ -27,7 +32,6 @@ main {
   width: 100%;
   margin: 0px auto;
   padding: 120px 0px;
-  
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -154,7 +158,7 @@ h1, h2, h3, blockquote {
  }
 
   #nagmi{
-    color: rgb(207, 42, 42);
+    color: rgb(165, 60, 60);
   }
 
   #section-community h2, h3{

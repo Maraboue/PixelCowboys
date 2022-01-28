@@ -322,7 +322,7 @@ render(){
   return (
 
       
-    <div>
+    <body>
     
     <canvas id="bg"></canvas>   
 
@@ -478,7 +478,7 @@ Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Eac
     </main>
     <script type="module" src="/main.js"></script>
 
-  </div>
+    </body>
     
   );
 }
