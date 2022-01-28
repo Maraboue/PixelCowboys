@@ -4,24 +4,29 @@ import * as THREE from 'three';
 import Typewriter from 'typewriter-effect';
 import NavigationBar from './components/navbar/navbar';
 
-import moon1 from './moon.jpg';
-import cowboy1 from './assets/images/pixelCowboy1.png';
-import cowboySpace from './assets/images/pxlSpaceCowboy.png';
+// Images 
 
+import moon1 from './moonCopy1.jpg';
+import cowboy1 from './pixelCowboy1.png';
 import cowboy24 from './assets/images/24.png';
 import cowboy160 from './assets/images/160.png';
 import cowboy246 from './assets/images/246.png';
 import cowboy527 from './assets/images/1071.png';
-import cowboy585 from './assets/images/1080.png';
 import cowboy638 from './assets/images/638.png';
-
-
+import cowboy5582 from './assets/images/5582.png';
+import cowboy4957 from './assets/images/4957.png';
+import cowboy71 from './assets/images/71.png';
+import cowboy19 from './assets/images/19.png';
+import cowboy1080 from './assets/images/1080.png';
+import cowgirl from './assets/images/cowgirl.png';
 import normal from './normal.jpg';
 import saloon from './assets/images/saloon.jpg';
-
 import discord from './assets/images/discord.png';
 import medium from './assets/images/medium.png';
 import twitter from './assets/images/twitter.png';
+
+
+// Audio
 
 import audio1 from './Lone_Rider.mp3'
 
@@ -46,7 +51,7 @@ camera.position.setX(-3);
 renderer.render(scene, camera);
 
 
-var stream = audio1 ;
+var stream = audio1;
 
 var audioLoader = new THREE.AudioLoader();
 var listener = new THREE.AudioListener();
@@ -88,27 +93,29 @@ Array(100).fill().forEach(addStar);
 
 // Background
 
-const spaceTexture = new THREE.TextureLoader().load(saloon);
-scene.background = spaceTexture;
+const saloonTexture = new THREE.TextureLoader().load(saloon);
+scene.background = saloonTexture;
 
 // Avatar
 
 const moonTexture1 = new THREE.TextureLoader().load(cowboy527);
-//const normalTexture1 = new THREE.TextureLoader().load(normal);
-
 const moonTexture = new THREE.TextureLoader().load(moon1);
+const normalTexture = new THREE.TextureLoader().load(normal);
 
 
-const cowboy = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5),
+
+/*const cowboy = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5),
 new THREE.MeshStandardMaterial({
   map: moonTexture1,
  // normalMap: normalTexture1,
 }));
 
-//scene.add(cowboy);
-const normalTexture = new THREE.TextureLoader().load(normal);
+scene.add(cowboy);
 
-const cowboyTexture2 = new THREE.TextureLoader().load(cowboy1);
+*/
+
+
+const cowboyTexture2 = new THREE.TextureLoader().load(cowboy5582);
 
 const cowboy2= new THREE.Mesh(new THREE.BoxGeometry(7, 7, 7), new THREE.MeshBasicMaterial({ map: cowboyTexture2 }));
 
@@ -124,9 +131,6 @@ const cowboyTexture4 = new THREE.TextureLoader().load(cowboy160);
 
 const cowboy4 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture4 }));
 
-//scene.add(cowboy4);
-//scene.add(moon);
-
 const cowboyTexture5 = new THREE.TextureLoader().load(cowboy246);
 
 const cowboy5 = new THREE.Mesh(new THREE.BoxGeometry(15, 15, 15), new THREE.MeshBasicMaterial({ map: cowboyTexture5 }));
@@ -141,9 +145,6 @@ new THREE.MeshStandardMaterial({
   normalMap: normalTexture,
 }));
   
-  
-  //new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture6 }));
-
 scene.add(cowboy6);
 
 const cowboyTexture7 = new THREE.TextureLoader().load(cowboy638);
@@ -164,22 +165,19 @@ const cowboy9 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBas
 
 scene.add(cowboy9);
 
-const cowboyTexture10 = new THREE.TextureLoader().load(cowboy638);
+const cowboyTexture10 = new THREE.TextureLoader().load(cowboy4957);
 
 const cowboy10 = new THREE.Mesh(new THREE.BoxGeometry(20, 20, 20), new THREE.MeshBasicMaterial({ map: cowboyTexture10 }));
 
 scene.add(cowboy10);
 
-const cowboyTexture11 = new THREE.TextureLoader().load(cowboy638);
+const cowboyTexture11 = new THREE.TextureLoader().load(cowboy4957);
 
 const cowboy11 = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture11 }));
 
 scene.add(cowboy11);
 
-
-// Moon
-
-//const normalTexture = new THREE.TextureLoader().load(normal);
+// Moons
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -204,25 +202,21 @@ new THREE.MeshStandardMaterial({
   map: moonTexture,
   normalMap: normalTexture,
 }));
-  
-  
-  //new THREE.BoxGeometry(5, 5, 5), new THREE.MeshBasicMaterial({ map: cowboyTexture6 }));
 
 scene.add(moon3);
+
+
+// Movement
 
 
 moon.position.z = 65;
 moon.position.setX(-10);
 
 moon2.position.z = 155;
-moon2.position.setX(-22);
+moon2.position.setX(-52);
 
-moon3.position.z = 305;
+moon3.position.z = 325;
 moon3.position.setX(-22);
-
-
-cowboy.position.z = -10;
-cowboy.position.x = 7;
 
 cowboy2.position.z = 0;
 cowboy2.position.setX(-25);
@@ -252,18 +246,13 @@ cowboy8.position.z = 100;
 cowboy8.position.setX(-120);
 cowboy8.position.setY(-5);
 
-
 cowboy9.position.z = 35;
 cowboy9.position.setX(-150);
 cowboy9.position.setY(3);
 
-
-
 cowboy10.position.z = 155;
 cowboy10.position.setX(-222);
 cowboy10.position.setY(3);
-
-
 
 cowboy11.position.z = 155;
 cowboy11.position.setX(-222);
@@ -315,9 +304,7 @@ moveCamera();
 
 const animate = function() {
   requestAnimationFrame(animate);
- 
 
-  cowboy.rotation.x += 0.0025;
 
   moon.rotation.x += 0.005;
 
@@ -338,7 +325,10 @@ render(){
     <div>
     
     <canvas id="bg"></canvas>   
-    <NavigationBar/>
+
+    <div class="navbar">
+      <NavigationBar/>
+      </div>
     <main>
 
       <header>
@@ -365,12 +355,12 @@ render(){
        <a  href="https://discord.gg/PfWgPDnq7F" class="btn btn-primary">Join Discord</a></center>
         <h3><img id="community-img" src={twitter} alt="Twitter "/></h3>
         <p>
-         Follow us on Twitter to get fast updates and news about the Pixel Cowboys.🤠
+         Follow us on Twitter to get fast updates and news about the Pixel Cowboys and things to come for the community.🤠
        </p><center>
        <a  href="https://twitter.com/PixelCowboyz" class="btn btn-primary">Follow Twitter</a></center>
         <h3><img id="community-img" src={medium} alt="Medium "/></h3>
         <p>
-         Stay up to date by reading our blog over at Medium.🤠 
+         Stay up to date by reading our blog over at Medium and get deeper insights in the progress for the project.🤠 
        </p><center>
        <a  href="https://dynamic-network.medium.com/" id="button" class="btn btn-primary">Read Medium</a></center>
 
@@ -436,7 +426,7 @@ Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Eac
 
           <div class="team-item">
 
-      <img src={cowboy1} alt="Loading.."/>
+      <img src={cowboy19} alt="Loading.."/>
 
             <h2>Clint Eastwood</h2>
               <p>Clint Eastwood - <strong>The Good</strong>. Here to build a community of gunslinger cowboys while searching for 
@@ -446,7 +436,7 @@ Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Eac
 
             <div class="team-item">
 
-      <img src={cowboy1} alt="Loading.."/>
+      <img src={cowgirl} alt="Loading.."/>
 
         <h2>Belle Starr</h2>
 
@@ -458,7 +448,7 @@ Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Eac
         
       <div class="team-item">
 
-<img src={cowboy1} alt="Loading.."/>
+<img src={cowboy1080} alt="Loading.."/>
 
        <h2>Billy The Kid</h2>
 
@@ -470,7 +460,7 @@ Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Eac
 
 <div class="team-item">
 
-<img src={cowboy1} alt="Loading.."/>
+<img src={cowboy71} alt="Loading.."/>
 
       <h2>Harmonica</h2>
 
@@ -484,18 +474,6 @@ Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Eac
       <blockquote>
         <p>See you in <strong>the Saloon</strong> Cowboy!</p>
       </blockquote>
-     
-
-<footer class="footer">
-  <ul>
-    <li><a href="#">Faq</a></li>
-    <li><a href="#">Terms of Use</a></li>
-    <li><a href="#">Privacy Notice</a></li>
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">About Us</a></li>
-  </ul>
-</footer>
-
 
     </main>
     <script type="module" src="/main.js"></script>

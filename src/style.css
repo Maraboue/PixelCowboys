@@ -16,6 +16,7 @@ canvas {
   font-family: 'Press Start 2P';
   font-weight: 400;
   font-style: normal;
+  letter-spacing: 1.5px;
 }
 
 main {
@@ -90,21 +91,29 @@ h1, h2, h3, blockquote {
     background: var(--dark-bg);
     grid-column: 2 / span 5;
     font-size: 1.2rem;
-    padding: 2rem;
-    
+    padding: 2.5rem;
     margin-bottom: var(--spacing);
     border-radius: 15px;
   }
 
+  header h1 {
+    line-height: 45px;
+  } 
+
+  header p{
+    padding-top: 25px;
+    padding-bottom: 10px;
+  }
+
   blockquote, section p {
-    color: limegreen;
-   
+    color: rgb(14, 204, 14);
+    margin-top: 15px;
+    font-weight: lighter;
   }
 
   section p:hover{
-    padding: 5px;
     border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1); 
   }
  
 
@@ -125,6 +134,17 @@ h1, h2, h3, blockquote {
     border-radius: 15px;
     text-align: center;
     font-weight: bold;
+  }
+
+  section p, h3{
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+
+
+  section h2,h3{
+      text-shadow: 2px 2px rgb(117, 117, 28)
   }
 
  #community-img{
@@ -159,10 +179,11 @@ h1, h2, h3, blockquote {
   }
 
   .team-item img{
-    padding-top: 10px;
-    padding-bottom: 10px;
+ 
     width:25%;
-    height: 200px;
+    height: 100%;
+    border-radius: 25px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3); 
   }
 
   .team-item{
@@ -187,3 +208,77 @@ h1, h2, h3, blockquote {
   .left {
     grid-column: 6 / 12;
   }
+
+  /* Footer */
+.footer {
+  position:sticky;
+	border-top: var(--text-color) 1px solid;
+	padding: 30px;
+	margin-top: 550px;
+    width: 100%;
+}
+
+.footer ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	text-align: center;
+}
+
+.footer a:hover {
+
+	color:chartreuse;
+}
+@media (max-width: 480px) {
+
+
+
+  canvas {
+    position: fixed;
+    top:0;
+    left:0;
+  }
+
+  
+  header{
+    position: absolute;
+    margin: 15px 5px 5px -15px;
+    left: 0px;
+    right: -190px;
+
+  }
+  header h1{
+    font-size: medium;
+  }
+
+  .btn-mint{
+    font-size: small;
+  }
+
+  blockquote p{
+    position:relative;
+    font-size: large;
+    top:300px;
+
+  }
+
+  section{
+    position: relative;
+    margin: auto;
+    width: 350px;
+  }
+  section h3,p{
+    font-size: smaller;
+  }
+
+  .left{
+    position: relative;
+    margin: auto;
+    width: 350px;
+    right:150px;
+  }
+
+
+
+
+}

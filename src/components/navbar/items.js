@@ -2,18 +2,18 @@ export const items = [
 
     {
         title: 'Community',
-        url: 'section-stream',
+        url: 'section-community',
         name: 'nav-links'
     },
     {
         title: 'About',
-        url: 'section-stream2',
+        url: 'section-about',
         name: 'nav-links'
     },
 
     {
         title: 'Road Map',
-        url: 'section-grid2',
+        url: 'section-roadmap',
         name: 'nav-links'
     },
 

@@ -82,18 +82,13 @@
 
 @media screen and (max-width: 960px) {
     .nav-items{
-        position: relative;
+        position: relative
+    
     }
+    
     .NavigationBarItems{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 500px;
-        position: absolute;
-        top: 80px;
-        left: -100%;
-        opacity: 1;
-        transition: all 0.5s ease;
+        font-size: x-small;
+
     }
 
     .NavigationBarItems.active{
@@ -109,10 +104,12 @@
         padding: 2rem;
         width: 100%;
         display: table;
+        margin-left: 7px;
+        margin-right: -75px;
     }
 
     .nav-links:hover{
-        background-color: #282c34;
+        
         border-radius: 0;
     }
 
