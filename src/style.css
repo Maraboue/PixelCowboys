@@ -129,7 +129,7 @@ h1, h2, h3, blockquote {
 
   section {
     grid-column: 2 / 8;
-    padding: 1rem;
+    padding: 2.5rem;
     background: var(--dark-bg);
     font-size: 1.15rem;
     line-height: 1.75;
@@ -137,12 +137,15 @@ h1, h2, h3, blockquote {
     font-family: 'Press Start 2P';
     border-radius: 15px;
     text-align: center;
-    font-weight: bold;
+    font-weight: lighter;
   }
 
   section p, h3{
     margin-top: 10px;
     margin-bottom: 15px;
+    font-size: 0.9rem;
+    line-height: 2;
+    padding: 1em;
   }
 
 
@@ -187,7 +190,7 @@ h1, h2, h3, blockquote {
     width:25%;
     height: 100%;
     border-radius: 25px;
-    border: 1.5px solid rgba(255, 255, 255, 0.3); 
+    border: 2px solid rgba(28, 250, 8, 0.3); 
   }
 
   .team-item{
@@ -243,6 +246,7 @@ h1, h2, h3, blockquote {
     left:0;
   }
 
+
   
   header{
     position: absolute;
@@ -259,6 +263,15 @@ h1, h2, h3, blockquote {
     font-size: small;
   }
 
+  #section-community a{
+    font-size: small;
+  }
+
+  #community-img{
+    width: 35%;
+  }
+ 
+
   blockquote p{
     position:relative;
     font-size: large;
@@ -273,15 +286,30 @@ h1, h2, h3, blockquote {
   }
   section h3,p{
     font-size: smaller;
+    text-align: left;
+  }
+
+  .light{
+    margin-top: 150px;
+    margin-bottom: -200px;
   }
 
   .left{
+    margin-bottom: 100px;
     position: relative;
-    margin: auto;
     width: 350px;
     right:150px;
   }
 
+  .team-item img{
+    height: 150px;
+    width: 150px;
+  }
+
+  
+
+ 
+ 
 
 
 

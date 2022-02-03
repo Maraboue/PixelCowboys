@@ -9,7 +9,7 @@ class NavigationBar extends Component{
         return(
 
            <nav className="NavigationBarItems">
-                <Link className="NavigationBar-Logo" to="DNT" smooth={true} duration={1000}>Pixel Cowboys
+                <Link className="NavigationBar-Logo" to="DNT" smooth={true} duration={1000}>
                 </Link>
                 <div className="Menu">
                 </div>

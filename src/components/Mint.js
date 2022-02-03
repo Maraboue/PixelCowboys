@@ -162,12 +162,12 @@ function Mint() {
                   You can still find Pixel Cowboys on{" "}
                   <a
                     target={"_blank"}
-                    href={"https://opensea.io/collection/pixel-cowboys-community-club"} // ÄNDRA DENNA!
+                    href={"https://opensea.io/collection/pixel-cowboys-community-club"} 
                   >
                     Opensea.io
                   </a>
                 </s.TextDescription>  
-              </>                               // Ändra kostnaden i ETH! // costs 0.04
+              </>                               // costs 0.025
             ) : (
               <>  
                 <s.TextTitle style={{ textAlign: "center", color:"#f5c42f" }}>  

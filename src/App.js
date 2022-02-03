@@ -7,7 +7,6 @@ import NavigationBar from './components/navbar/navbar';
 // Images 
 
 import moon1 from './moonCopy1.jpg';
-import cowboy1 from './pixelCowboy1.png';
 import cowboy24 from './assets/images/24.png';
 import cowboy160 from './assets/images/160.png';
 import cowboy246 from './assets/images/246.png';
@@ -25,17 +24,19 @@ import discord from './assets/images/discord.png';
 import medium from './assets/images/medium.png';
 import twitter from './assets/images/twitter.png';
 
-
 // Audio
 
 import audio1 from './Lone_Rider.mp3'
 
-
 class App extends React.Component {
+
+  state = {
+    loading: true
+  };
 
   componentDidMount() {
 
-    const scene = new THREE.Scene();
+const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -73,8 +74,6 @@ scene.add(pointLight, ambientLight);
 
 
 
-
-
 function addStar() {
 
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
@@ -103,17 +102,7 @@ const moonTexture = new THREE.TextureLoader().load(moon1);
 const normalTexture = new THREE.TextureLoader().load(normal);
 
 
-
-/*const cowboy = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5),
-new THREE.MeshStandardMaterial({
-  map: moonTexture1,
- // normalMap: normalTexture1,
-}));
-
-scene.add(cowboy);
-
-*/
-
+// Cowboys
 
 const cowboyTexture2 = new THREE.TextureLoader().load(cowboy5582);
 
@@ -208,7 +197,6 @@ scene.add(moon3);
 
 // Movement
 
-
 moon.position.z = 65;
 moon.position.setX(-10);
 
@@ -224,7 +212,6 @@ cowboy2.position.setX(-25);
 cowboy3.position.z = 15;
 cowboy3.position.setX(33);
 cowboy3.position.setY(32);
-
 
 cowboy4.position.z = 25;
 cowboy4.position.setX(111);
@@ -261,6 +248,7 @@ cowboy11.position.setY(3);
 // Scroll Animation
 
 const moveCamera = function() {
+
   const t = document.body.getBoundingClientRect().top;
   moon.rotation.x += 0.05;
   moon.rotation.y += 0.075;
@@ -312,18 +300,19 @@ const animate = function() {
 }
   animate();
 
-  
  
   }
 
 
 
 render(){
-  return (
 
+  
+  return (
+    <div>
       
     <body>
-    
+ 
     <canvas id="bg"></canvas>   
 
     <div class="navbar">
@@ -367,7 +356,7 @@ render(){
       </section>
 
       <section class="light" id="section-about">
-      <center><h2>🤠 About the Cowboys 🤠</h2></center>
+      <center><h2>🤠 About the Cowboys</h2></center>
 
 <h3>Limited Collection </h3>
 <p>
@@ -479,7 +468,7 @@ Only <strong id="mint-date">7000</strong> Pixel Cowboys will ever be minted. Eac
     <script type="module" src="/main.js"></script>
 
     </body>
-    
+  </div>
   );
 }
 }
